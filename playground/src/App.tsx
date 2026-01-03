@@ -1,12 +1,19 @@
 //@ts-nocheck
-import { MyButton } from "../../src";
-import Overlay from "../../src/components/Overlay";
+import { MyButton, ReactStepzy } from "../../src";
 
 export function App() {
-  return (
-    <>
-      <Overlay />
-      <MyButton type="primary" />
-    </>
-  );
+	return (
+		<>
+			<MyButton type="primary" />
+
+			<ReactStepzy
+				steps={[
+					{
+						target: document.querySelector(".my-button"),
+						content: "slakdm",
+					},
+				]}
+			/>
+		</>
+	);
 }
