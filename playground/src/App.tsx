@@ -1,19 +1,24 @@
 //@ts-nocheck
+import { useState } from "react";
 import { MyButton, ReactStepzy } from "../../src";
 
 export function App() {
-	return (
-		<>
-			<MyButton type="primary" />
+  const [enabled, setEnabled] = useState(false);
+  return (
+    <>
+      <MyButton type="primary" onRender={() => setEnabled(true)} />
 
-			<ReactStepzy
-				steps={[
-					{
-						target: document.querySelector(".my-button"),
-						content: "slakdm",
-					},
-				]}
-			/>
-		</>
-	);
+      <ReactStepzy
+        config={{
+          enabled: enabled,
+        }}
+        steps={[
+          {
+            target: document.querySelector(".my-button"),
+            content: "slakdm",
+          },
+        ]}
+      />
+    </>
+  );
 }

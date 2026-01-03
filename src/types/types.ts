@@ -1,12 +1,15 @@
 export type StepType = {
-	content: string;
-	target: HTMLElement | null;
+  content: string;
+  target: HTMLElement | null;
 };
 
 export type ReactStepzyProps = {
-	steps: StepType[];
+  steps: StepType[];
+  config: {
+    enabled: boolean;
+  };
 };
 
 export type SpotlightProps = {
-	target: HTMLElement;
+  target: HTMLElement;
 };
