@@ -3,4 +3,9 @@
   inset: 0;
   box-shadow: 0 0 0 999999px rgba(0, 0, 0, 0.6);
   pointer-events: none;
+  z-index: 999;
+}
+
+.react-stepzy-tooltip{
+  z-index: 9999;
 }

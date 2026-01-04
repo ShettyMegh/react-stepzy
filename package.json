@@ -19,7 +19,8 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./styles.css": "./dist/styles.css"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -38,7 +39,7 @@
     "step-by-step"
   ],
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && cpy src/styles/styles.css dist --flat",
     "dev": "tsdown --watch",
     "play": "vite --host",
     "test": "vitest",
@@ -59,6 +60,7 @@
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/browser-playwright": "^4.0.16",
     "bumpp": "^10.3.2",
+    "cpy-cli": "^6.0.0",
     "tsdown": "^0.18.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.0",
