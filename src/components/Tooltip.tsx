@@ -21,6 +21,7 @@ const Tooltip = ({
   };
   content: ReactNode | string;
 }) => {
+  const controller = new AbortController();
   const arrowRef = useRef(null);
   const { refs, floatingStyles, context, update } = useFloating({
     middleware: [
@@ -33,10 +34,19 @@ const Tooltip = ({
   });
 
   useEffect(() => {
-    if (target) {
-      refs.setReference(target);
+    if (!target) return;
+    refs.setReference(target);
+    update();
+
+    const resizeFun = () => {
       update();
-    }
+    };
+
+    window.addEventListener("resize", resizeFun);
+
+    return () => {
+      controller.abort();
+    };
   }, [target]);
 
   if (!target) return null;
