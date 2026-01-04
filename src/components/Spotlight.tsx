@@ -3,6 +3,7 @@ import type { SpotlightProps } from "../types/types";
 import { cn } from "../utils/cn";
 
 const Spotlight = ({ target }: SpotlightProps) => {
+  const controller = new AbortController();
   const [targetSize, setTargetSize] = useState<null | {
     height: number;
     width: number;
@@ -18,10 +19,6 @@ const Spotlight = ({ target }: SpotlightProps) => {
       .getComputedStyle(target)
       .getPropertyValue("border-radius");
 
-    target.scrollIntoView({
-      behavior: "smooth",
-    });
-
     setTargetSize({
       height: rect.height,
       width: rect.width,
@@ -31,6 +28,13 @@ const Spotlight = ({ target }: SpotlightProps) => {
     });
   };
 
+  const handleResize = () => {
+    target.scrollIntoView({
+      behavior: "smooth",
+    });
+    handleTargetSize();
+  };
+
   useEffect(() => {
     if (!target) {
       console.error("Target Not Found", target);
@@ -38,12 +42,13 @@ const Spotlight = ({ target }: SpotlightProps) => {
     }
     document.body.style.overflow = "hidden";
 
-    handleTargetSize();
+    handleResize();
 
-    window.addEventListener("resize", handleTargetSize);
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scrollend", handleTargetSize);
     return () => {
       document.body.style.overflow = "auto";
-      window.removeEventListener("resize", handleTargetSize);
+      controller.abort();
     };
   }, []);
 

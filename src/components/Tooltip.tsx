@@ -58,7 +58,7 @@ const Tooltip = ({
     <div
       ref={refs.setFloating}
       className={cn("tooltip")}
-      style={floatingStyles}
+      style={{ ...floatingStyles, zIndex: 999 }}
     >
       <FloatingArrow ref={arrowRef} context={context} />
       <div className={cn("tooltip-content")}>{content}</div>
