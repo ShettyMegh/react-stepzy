@@ -12,28 +12,34 @@ A headless React library for building guided tours, walkthroughs, and onboarding
 
 ## Installation
 
-sh
-npm install react-stepzy## Quick Start
-
+```
+npm install react-stepzy
+```
+## Quick Start
+```ts
 import { ReactStepzy } from 'react-stepzy';
 
 function App() {
-const stepzyRef = useRef<StepzyObjRef>(null);
+    const stepzyRef = useRef<StepzyObjRef>(null);
 
-return (
-<ReactStepzy
-stepzyObjRef={stepzyRef}
-config={{ enabled: true }}
-steps={[
-{
-target: document.querySelector('#my-element'),
-content: 'This is step 1'
+    return (
+        <ReactStepzy
+            stepzyObjRef={stepzyRef}
+            config={{ enabled: true }}
+            steps={[
+                {
+                target: document.querySelector('#my-element'),
+                content: 'This is step 1'
+                },
+                {
+                target: document.querySelector('#my-element'),
+                content: <CustomComponent />
+                }
+            ]}
+        />
+    );
 }
-]}
-/>
-);
-}
-
+```
 ## API Reference
 
 ### ReactStepzy Props
