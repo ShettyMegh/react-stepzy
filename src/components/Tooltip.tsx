@@ -4,6 +4,7 @@ import {
   offset,
   useFloating,
   type UseFloatingOptions,
+  flip,
 } from "@floating-ui/react";
 import { cn } from "../utils/cn";
 import { useEffect, useRef, type ReactNode } from "react";
@@ -29,6 +30,9 @@ const Tooltip = ({
         element: arrowRef,
       }),
       offset(7),
+      flip({
+        fallbackAxisSideDirection: "start",
+      }),
     ],
     placement: tooltipConfig.placement || "bottom",
   });
