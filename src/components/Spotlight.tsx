@@ -18,6 +18,10 @@ const Spotlight = ({ target }: SpotlightProps) => {
       .getComputedStyle(target)
       .getPropertyValue("border-radius");
 
+    target.scrollIntoView({
+      behavior: "smooth",
+    });
+
     setTargetSize({
       height: rect.height,
       width: rect.width,
@@ -33,10 +37,12 @@ const Spotlight = ({ target }: SpotlightProps) => {
       return;
     }
     handleTargetSize();
+    document.body.style.overflow = "hidden";
 
     window.addEventListener("resize", handleTargetSize);
     return () => {
       window.removeEventListener("resize", handleTargetSize);
+      document.body.style.overflow = "auto";
     };
   }, []);
 
