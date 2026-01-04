@@ -18,6 +18,7 @@ npm install react-stepzy
 ## Quick Start
 ```ts
 import { ReactStepzy } from 'react-stepzy';
+import "react-stepzy/styles.css";
 
 function App() {
     const stepzyRef = useRef<StepzyObjRef>(null);
@@ -39,6 +40,24 @@ function App() {
         />
     );
 }
+```
+
+## Styles
+
+`react-stepzy` ships with minimal default styles for the spotlight and tooltip.
+
+Import the stylesheet **once** in your application:
+
+```ts
+import "react-stepzy/styles.css";
+```
+
+```md
+### Framework notes
+
+- **Next.js (App Router)**: import the stylesheet in `app/layout.tsx`
+- **Next.js (Pages Router)**: import it in `pages/_app.tsx`
+- **Vite / CRA**: import it in your main entry file (e.g. `main.tsx`)
 ```
 ## API Reference
 
@@ -63,7 +82,8 @@ stepzyRef.current?.controls.prev();
 stepzyRef.current?.controls.close();
 stepzyRef.current?.controls.goTo(2);## Examples
 
-## Examples Coming Soon
+## Examples
+Coming Soon
 
 ## Development
 
