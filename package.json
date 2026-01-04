@@ -53,5 +53,8 @@
     "vite": "^7.3.0",
     "vitest": "^4.0.16",
     "vitest-browser-react": "^2.0.2"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.16"
   }
 }

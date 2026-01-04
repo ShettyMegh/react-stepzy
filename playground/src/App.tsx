@@ -10,11 +10,24 @@ export function App() {
       <ReactStepzy
         config={{
           enabled,
+          tooltipConfig: {
+            placement: "right",
+          },
         }}
         steps={[
           {
             target: document.querySelector(".my-button"),
-            content: "slakdm",
+            content: (
+              <div
+                style={{
+                  background: "white",
+                  color: "black",
+                  borderRadius: "3px",
+                }}
+              >
+                This is tooltip content
+              </div>
+            ),
           },
         ]}
       />
