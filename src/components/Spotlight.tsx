@@ -11,12 +11,7 @@ const Spotlight = ({ target }: SpotlightProps) => {
     borderRadius: string;
   }>(null);
 
-  useEffect(() => {
-    if (!target) {
-      console.error("Target Not Found", target);
-      return;
-    }
-
+  const handleTargetSize = () => {
     const rect = target.getBoundingClientRect();
 
     const raidus = window
@@ -30,7 +25,20 @@ const Spotlight = ({ target }: SpotlightProps) => {
       left: rect.left,
       borderRadius: raidus,
     });
-  }, [target]);
+  };
+
+  useEffect(() => {
+    if (!target) {
+      console.error("Target Not Found", target);
+      return;
+    }
+    handleTargetSize();
+
+    window.addEventListener("resize", handleTargetSize);
+    return () => {
+      window.removeEventListener("resize", handleTargetSize);
+    };
+  }, []);
 
   return (
     <div

@@ -10,7 +10,9 @@ export type ReactStepzyProps = {
   config: {
     enabled: boolean;
     delay?: number;
-    tooltipConfig?: UseFloatingOptions;
+    tooltipConfig?: {
+      placement: UseFloatingOptions["placement"];
+    };
   };
 };
 
