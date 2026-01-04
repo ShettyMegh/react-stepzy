@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MyButton, ReactStepzy } from "../../src";
 
 export function App() {
@@ -7,10 +7,9 @@ export function App() {
   return (
     <>
       <MyButton type="primary" onRender={() => setEnabled(true)} />
-
       <ReactStepzy
         config={{
-          enabled: enabled,
+          enabled,
         }}
         steps={[
           {

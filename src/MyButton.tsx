@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface MyButtonProps {
   type?: "primary";
@@ -7,17 +7,21 @@ interface MyButtonProps {
 
 export const MyButton: React.FC<MyButtonProps> = ({ type, onRender }) => {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLButtonElement | undefined>(undefined);
+  const [mount, setMount] = useState(false);
+
   useEffect(() => {
-    if (!ref.current) return;
-    onRender();
-  }, [ref.current]);
+    if (mount) return;
+    setMount(true);
+  }, []);
+
+  useEffect(() => {
+    if (mount) {
+      onRender();
+    }
+  }, [mount]);
+
   return (
-    <button
-      className="my-button"
-      ref={ref as any}
-      onClick={() => setCount(count + 1)}
-    >
+    <button className="my-button" onClick={() => setCount(count + 1)}>
       my button
       <br /> type: {type}
       <br /> count: {count}

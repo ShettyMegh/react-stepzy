@@ -11,20 +11,17 @@ const Spotlight = ({ target }: SpotlightProps) => {
     borderRadius: string;
   }>(null);
 
-  console.log({ target });
-
   useEffect(() => {
-    if (!target) return;
+    if (!target) {
+      console.error("Target Not Found", target);
+      return;
+    }
 
     const rect = target.getBoundingClientRect();
-    console.log({
-      rad: target.style.borderRadius,
-    });
+
     const raidus = window
       .getComputedStyle(target)
       .getPropertyValue("border-radius");
-
-    console.log({ raidus });
 
     setTargetSize({
       height: rect.height,
