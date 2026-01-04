@@ -36,13 +36,14 @@ const Spotlight = ({ target }: SpotlightProps) => {
       console.error("Target Not Found", target);
       return;
     }
-    handleTargetSize();
     document.body.style.overflow = "hidden";
+
+    handleTargetSize();
 
     window.addEventListener("resize", handleTargetSize);
     return () => {
-      window.removeEventListener("resize", handleTargetSize);
       document.body.style.overflow = "auto";
+      window.removeEventListener("resize", handleTargetSize);
     };
   }, []);
 
