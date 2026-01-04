@@ -1,24 +1,27 @@
 {
   "name": "react-stepzy",
   "type": "module",
-  "version": "0.0.0",
-  "description": "A starter for creating a React component library.",
-  "author": "Author Name <author.name@mail.com>",
+  "version": "0.1.0",
+  "description": "A headless React library for building guided tours, walkthroughs, and onboarding experiences.",
+  "author": "Meghanath S Shetty",
   "license": "MIT",
-  "homepage": "https://github.com/author/library#readme",
+  "homepage": "https://github.com/ShettyMegh/react-stepzy#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/ShettyMegh/react-stepzy.git"
   },
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/ShettyMegh/react-stepzy/issues"
   },
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -28,16 +31,16 @@
   },
   "scripts": {
     "build": "tsdown",
-    "dev": "npm i && tsdown --watch",
+    "dev": "tsdown --watch",
     "play": "vite --host",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp && pnpm publish",
-    "prepublishOnly": "pnpm run build"
+    "release": "bumpp && npm publish",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.11",
