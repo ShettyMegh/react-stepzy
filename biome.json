@@ -21,6 +21,9 @@
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "double"
+		},
+		"organizeImports": {
+			"enabled": true
 		}
 	},
 	"assist": {

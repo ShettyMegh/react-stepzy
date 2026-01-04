@@ -12,6 +12,7 @@ export type StepzyObjRef = {
     next: () => void;
     prev: () => void;
     close: () => void;
+    goTo: (idx: number) => void;
   };
 };
 

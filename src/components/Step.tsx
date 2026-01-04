@@ -11,12 +11,12 @@ const Step = ({
   config?: StepzyConfig;
   isActive: boolean;
 }) => {
-  if (!isActive) return;
+  if (!isActive || !step.target) return;
   return (
     <>
-      <Spotlight target={step.target!} />
+      <Spotlight target={step.target} />
       <Tooltip
-        target={step.target!}
+        target={step.target}
         tooltipConfig={config?.tooltipConfig || {}}
         content={step.content}
       />

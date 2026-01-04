@@ -29,6 +29,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "react",
+    "tour",
+    "onboarding",
+    "walkthrough",
+    "guided-tour",
+    "step-by-step"
+  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
